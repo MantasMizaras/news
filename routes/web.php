@@ -34,3 +34,8 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
 
 // Admin Category All Routes
 Route::get('/categories', [CategoryController::class, 'Index'])->name('categories');
+
+Route::get('/add/category', [CategoryController::class, 'AddCategory'])->name('add.category');
+
+Route::post('/store/category', [CategoryController::class, 'StoreCategory'])->name('store.category');
+

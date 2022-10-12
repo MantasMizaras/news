@@ -31,7 +31,7 @@
                     <h4 class="card-title">Category Page</h4>
 
                     <div class="template-demo">
-  <a href=""><button type="button" class="btn btn-primary btn-fw" style="float: right;">Add Category</button></a>	              	
+  <a href="{{ route('add.category')  }}"><button type="button" class="btn btn-primary btn-fw" style="float: right;">Add Category</button></a>	              	
               </div>
                     
                     <div class="table-responsive">
