@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,6 @@ Route::middleware([
 
 // Admin Logout
 Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
+
+// Admin Category All Routes
+Route::get('/categories', [CategoryController::class, 'Index'])->name('categories');
