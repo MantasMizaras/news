@@ -9,7 +9,7 @@ use DB;
 class CategoryController extends Controller
 {
     public function Index(){
-        $category = DB::table('categories')->orderBy('id', 'desc')->paginate(2);
+        $category = DB::table('categories')->orderBy('id', 'desc')->paginate(3);
         return view('backend.category.index',compact('category'));
     }
 
@@ -34,5 +34,36 @@ class CategoryController extends Controller
         );
 
         return Redirect()-> route('categories')->with($notification);
+    }
+
+    public function EditCategory($id){
+    	$category = DB::table('categories')->where('id',$id)->first();
+    	return view('backend.category.edit',compact('category'));
+    }
+
+    public function UpdateCategory(Request $request, $id ){
+
+        $data = array();
+        $data['category_en'] = $request->category_en;
+        $data['category_hin'] = $request->category_hin;
+        DB::table('categories')->where('id', $id)->update($data);
+
+        $notification = array(
+         'message' => "Category updated successfully",
+        'alert-type' => 'success'
+        );
+
+        return Redirect()-> route('categories')->with($notification);
+    }
+
+    public function DeleteCategory($id){
+    	DB::table('categories')->where('id',$id)->delete();
+
+    	$notification = array(
+    	 	'message' => 'Category deleted successfully',
+    	 	'alert-type' => 'success'
+    	 );
+
+    	 return Redirect()->route('categories')->with($notification);
     }
 }

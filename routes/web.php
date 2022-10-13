@@ -39,3 +39,8 @@ Route::get('/add/category', [CategoryController::class, 'AddCategory'])->name('a
 
 Route::post('/store/category', [CategoryController::class, 'StoreCategory'])->name('store.category');
 
+Route::get('/edit/category/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
+
+Route::post('/update/category/{id}', [CategoryController::class, 'UpdateCategory'])->name('update.category');
+
+Route::get('/delete/category/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');

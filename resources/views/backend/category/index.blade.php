@@ -52,8 +52,8 @@
                  <td> {{ $row->category_en }} </td>
                  <td> {{ $row->category_hin }} </td>
                  <td> 
-                    <a href="" class="btn btn-info">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="{{ route('edit.category',$row->id) }}" class="btn btn-info">Edit</a>
+                    <a href="{{ route('delete.category',$row->id) }}" onclick="return confirm('Are you sure to delete')" class="btn btn-danger">Delete</a>
 
 
                  </td>
