@@ -9,7 +9,7 @@ use DB;
 class CategoryController extends Controller
 {
     public function Index(){
-        $category = DB::table('categories')->orderBy('id', 'desc')->paginate(3);
+        $category = DB::table('categories')->orderBy('id', 'desc')->paginate(2);
         return view('backend.category.index',compact('category'));
     }
 
@@ -28,6 +28,11 @@ class CategoryController extends Controller
         $data['category_hin'] = $request->category_hin;
         DB::table('categories')->insert($data);
 
-        return Redirect()->route('categories');
+        $notification = array(
+         'message' => "Category inserted successfully",
+        'alert-type' => 'success'
+        );
+
+        return Redirect()-> route('categories')->with($notification);
     }
 }
