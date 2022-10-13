@@ -62,7 +62,7 @@
                  
                         </tbody>
                       </table>
-                      {{ $category-> links() }}
+                      {{ $category-> links('pagination-links') }}
                     </div>
                   </div>
                 </div>
